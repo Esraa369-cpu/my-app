@@ -1,38 +1,146 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #edefee;
+  color: #333;
+  line-height: 1.6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
+.container {
+  display: grid;
+  grid-template-areas: 
+  "header"
+  "nav"
+  "main"
+  "footer";
+  grid-template-rows: auto auto 1fr auto;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+   background-color: #edefee;
+  color: #333;
+}
+
+header {
+  grid-area:header;
+  background-color: #f4ce14;
+  padding: 2rem;
   align-items: center;
+  border-bottom: 4px solid #495e57;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+header p {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+nav {
+  grid-area: nav;
+  background-color: #495e57;
+  padding: 1rem 2rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+nav a {
   color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
 
-.App-link {
-  color: #61dafb;
+nav a:hover {
+  text-decoration: underline;
+  color: #f4ce14;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+main {
+  grid-area: main;
+  padding: 2rem;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #495e57;
+  color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-img {
+  max-width: 300px;
+  border-radius: 12px;
+}
+
+.highlights h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.highlights {
+  overflow-x: auto;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  flex: 0 0 250px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card h3 {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.card span {
+  display: block;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
 }
