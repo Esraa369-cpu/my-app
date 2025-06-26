@@ -1,18 +1,15 @@
-
 import './App.css';
-import Header from './Header';
-import Nav from './Nav';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import Main from './Main';
-import Footer from './Footer';
 
 function App() {
   return (
     <div className='container'>
-     <Header/>
-     <Nav/>
-     <Main/>
-     <Footer/>
+      <NavBar />
+      <Main />
+      <Footer />
     </div>
-  );
-};
+  )
+}
 export default App;
