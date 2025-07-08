@@ -1,21 +1,25 @@
-body {
+html,body {
+  height: 100%;
   font-family: 'Inter', sans-serif;
   background-color: #edefee;
   margin: 0;
   padding: 0;
   color: #333;
+  overflow-x: hidden;
 }
 
 .container {
-  display: grid;
-  grid-template-areas: "nav" "main" "footer";
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
+  .container {
+  max-width: 1100px;
+  padding: 0;
+  margin: 0;
+}
+
 }
 
 nav {
   grid-area: nav;
-  background-color: #495e57;
+  background-color: white;
   padding: 1rem;
 }
 
@@ -23,13 +27,14 @@ nav ul {
   display: flex;
   list-style: none;
   gap: 2rem;
+  align-items: center;
   justify-content: center;
   margin: 0;
   padding: 0;
 }
 
 nav a {
-  color: white;
+  color: #495e57;
   text-decoration: none;
   font-weight: bold;
 }
@@ -39,78 +44,240 @@ main {
   padding: 2rem;
 }
 
-footer {
-  grid-area: footer;
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-}
 
 .hero {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  /* ✅ Full width */
+  width:100vw;
+
+  /* ✅ Reduced vertical padding (shorter height) */
+  padding: 2rem 5%;
+
+  /* Optional: Remove rounded corners if matching edge-to-edge */
+  border-radius: 0;
+
   background-color: #495e57;
-  color: white;
-  padding: 2rem;
-  border-radius: 12px;
-  gap: 1rem;
-  flex-wrap: wrap;
+  margin: 0 auto;
+  gap: 2rem;
+
+  /* Optional: Add max height constraint */
+  min-height: 280px;
+  max-height: 350px;
+
 }
 
-.hero img {
-  max-width: 300px;
-  border-radius: 12px;
+
+
+.hero-text {
+  flex: 1;
+  color: white;
 }
+
+.hero-text h1 {
+  font-family:'Times New Roman', Times, serif;
+  font-size: 3rem;
+  margin:  0;
+  color: #f4ce14;
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  max-width: 400px;
+}
+
+.hero-image {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  height: 380px;
+  width: auto;
+  border-radius: 12px;
+  object-fit: cover;
+
+  /* 👇 Here's the magic */
+  position: relative;
+  top: 70px;       /* Push image down slightly */
+  right: -5px;    /* Push image outside to the right */
+  z-index: 2;
+}
+
 
 .hero button {
   background-color: #f4ce14;
+  color:#495e57;
   border: none;
   padding: 0.75rem 1.5rem;
   font-weight: bold;
-  border-radius: 8px;
-  margin-top: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
 }
 
 .highlights {
+  padding: 3rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.highlights-header {
   display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding: 2rem 0;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-.card {
-  background-color: white;
+.highlights-header h2 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2.5rem;
+  color:#495e57;
+}
+
+.menu-button {
+  background-color: #f4ce14;
+  color:#495e57;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
   border-radius: 12px;
-  padding: 1rem;
-  flex: 0 0 250px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-weight: bold;
 }
 
-.card img {
-  width: 100%;
-  border-radius: 8px;
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
+
+.special-card {
+  background-color: #fdfdfd;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.special-card:hover {
+  transform: translateY(-5px);
+}
+
+.special-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.special-content {
+  padding: 1rem;
+}
+
+.special-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.special-title h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #495e57;
+}
+
+.special-title span {
+  font-weight: bold;
+  color: #ee9972;
+}
+
+.special-content p {
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.special-content a {
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
 
 .testimonials {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  margin-top: 2rem;
+  padding: 3rem 2rem;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
 }
 
 .testimonial-card {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border-left: 4px solid #f4ce14;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.testimonial-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.testimonial-card p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
 }
 
 .about {
+  display: flex;
+  flex-direction: column;
+  background-color: #495e57;
   text-align: center;
-  padding: 2rem;
-  background-color: #fdfdfd;
-  border-radius: 12px;
-  margin-top: 2rem;
+  padding:3rem 1rem;
+}
+
+.about h2 {
+  color: #edefee;
+  font-weight: bold;
+}
+
+.about p {
+  white-space: normal;        /* ✅ ensures wrapping is allowed */
+  word-wrap: break-word;      /* ✅ break long words if needed */
+  max-width: 800px;           /* ✅ controls line length for readability */
+  line-height: 1.6;           /* ✅ improves spacing between lines */
+  margin: 0 auto;             /* ✅ centers the paragraph */
+  text-align: center;         /* optional: centers the text */
+  color: #FBDABB;
+
+}
+
+.footer {
+  background-color:#495e57;
+  color:#FBDABB;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
 }
 
 .booking-form {
@@ -135,19 +302,111 @@ footer {
   font-weight: bold;
 }
 
+form {
+  margin-top: 1rem;
+}
+
+form input,
+form select,
+form button {
+   padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: #f4ce14;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #ddb913;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.login-page h2 {
+  font-weight: bold;
+  color: #495e57;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 1rem;
+}
+
+.login-form input {
+  padding: 0.5rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+.login-form button {
+  padding: 0.75rem;
+  background-color: #f4ce14;
+  color: #495e57;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-  .hero {
+  /* General layout: stack sections vertically and center content */
+  .hero,
+  .about {
     flex-direction: column;
     text-align: center;
+    padding: 2rem 1rem;
   }
 
-  nav ul {
+  .hero-text,
+  .about-text {
+    width: 100%;
+  }
+
+  .hero-image,
+  .about-image {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .hero-image img,
+  .about-image img {
+    max-width: 100%;
+    height: auto;
+    position: static;
+  }
+
+  /* Highlights grid: stack specials in one column */
+  .specials-grid,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 1rem;
   }
 
-  .card {
-    flex: 0 0 80%;
+  .nav-links li a {
+    display: block;
+    width: 100%;
   }
 }
+
+
