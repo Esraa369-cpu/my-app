@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function CallToAction() {
     return (
         <section className="hero">
@@ -6,7 +8,9 @@ function CallToAction() {
                 <h2>Chicago</h2>
                 <p>We are a family owned mediterranean restaurant,focused on traditional
                     recipes served with a modern twist.</p>
-                <button>Reserve A Table</button>
+                <Link to="/booking" className="cta-button">
+                   Reserve a Table
+                </Link>
             </div>
             <div className="hero-image">
             <img src="restauranfood.jpg" alt="Hero Dish" />

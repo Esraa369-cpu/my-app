@@ -1,16 +1,15 @@
 import { useState } from 'react';
 
-function BookingForm({availableTimes, dispatch}) {
-  // ✅ Step 1: Declare state variables for each form field
+function BookingForm({ availableTimes, dispatch, submitForm }) {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('');
 
   const handleSubmit = (e) => {
-   e.preventDefualt();
-    console.log({date, time, guests, occasion});
-    alert('Reservation submitted!');
+    e.preventDefault();
+    const formData = { date, time, guests, occasion };
+    submitForm(formData); // <-- Submit via props
   };
 
   const handleDateChange = (e) => {
@@ -19,14 +18,16 @@ function BookingForm({availableTimes, dispatch}) {
     dispatch({ type: 'UPDATE_TIMES', date: selectedDate });
   };
 
+
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'grid', maxWidth: '300px', gap: '20px' }}>
+    <form onSubmit={handleSubmit} className="booking-page">
+
       <label htmlFor="res-date">Choose date</label>
       <input
         type="date"
         id="res-date"
         value={date}
-        onChange={(e) => setDate(e.target.value)}
+        onChange={handleDateChange}
         required
       />
 

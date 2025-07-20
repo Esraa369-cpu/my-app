@@ -1,10 +1,11 @@
 import BookingForm from '../components/BookingForm';
 
-function BookingPage({availableTimes, dispatch}) {
+function BookingPage({availableTimes, dispatch, submitForm}) {
   return (
-    <section>
+    <section className="booking-page">
       <h2>Book A Table</h2>
-      <BookingForm availableTimes={availableTimes} dispatch={dispatch}/>
+      <BookingForm availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} />
+
     </section>
   );
 }
